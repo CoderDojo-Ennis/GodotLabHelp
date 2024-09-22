@@ -1,19 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://ng2hnkkqeyp3"]
+[gd_scene load_steps=9 format=3 uid="uid://ng2hnkkqeyp3"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_m0dpa"]
 [ext_resource type="Texture2D" uid="uid://bxul6kydghc5s" path="res://Sprites/icon.svg" id="2_ctdv0"]
+[ext_resource type="Shader" path="res://Player/Player.gdshader" id="3_txpg4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qytij"]
+shader = ExtResource("3_txpg4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0pcv"]
+shader = ExtResource("3_txpg4")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aqo6y"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_m0dpa")
-metadata/_edit_group_ = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yxnn"]
+shader = ExtResource("3_txpg4")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -15.1)
-scale = Vector2(0.15625, 0.235938)
-texture = ExtResource("2_ctdv0")
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_c83fa"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+material = SubResource("ShaderMaterial_qytij")
+script = ExtResource("1_m0dpa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_r0pcv")
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_aqo6y")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_5yxnn")
+position = Vector2(0, -15)
+scale = Vector2(20, 15)
+mesh = SubResource("CapsuleMesh_c83fa")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(0.125, 0.103125)
+texture = ExtResource("2_ctdv0")

@@ -10,7 +10,6 @@ size = Vector2(183, 20)
 [node name="Player" parent="." instance=ExtResource("1_y8hml")]
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-36, 10)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
@@ -20,5 +19,6 @@ shape = SubResource("RectangleShape2D_obimk")
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 polygon = PackedVector2Array(-55, 0, 129, 0, 129, 20, -55, 20)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Ground"]
+position = Vector2(36, -10)
 zoom = Vector2(3, 3)

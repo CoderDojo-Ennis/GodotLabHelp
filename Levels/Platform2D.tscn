@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7pk7gmg2g2ff"]
+
+[ext_resource type="PackedScene" uid="uid://ng2hnkkqeyp3" path="res://Player/Player.tscn" id="1_y8hml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obimk"]
+size = Vector2(183, 20)
+
+[node name="Platform2d" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_y8hml")]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-36, 10)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(36.5, 10)
+shape = SubResource("RectangleShape2D_obimk")
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-55, 0, 129, 0, 129, 20, -55, 20)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

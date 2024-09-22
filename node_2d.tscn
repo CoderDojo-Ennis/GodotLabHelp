@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://kymhwyeedgw6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nibt7"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nibt7")
